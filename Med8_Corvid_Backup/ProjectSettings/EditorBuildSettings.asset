@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
+  - enabled: 0
+    path: Assets/Scenes/QuestUI.unity
+    guid: a23f79355145f24468d78174855f36b3
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/Scenes/HomeWorkSpace.unity
+    guid: 5f2738157676d80459d939dcf4651172
   m_configObjects: {}

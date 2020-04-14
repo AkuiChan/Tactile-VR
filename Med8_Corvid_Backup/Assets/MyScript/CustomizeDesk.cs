@@ -53,7 +53,7 @@ public class CustomizeDesk : MonoBehaviour
     void MovePosition(GameObject ActivePosition)
     {
         // While Trigger is active, Transform Position to be at the right controller.
-        if (OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+        if (OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger))
         {
             ActivePosition.transform.position = R_Controller.transform.position;
         }
