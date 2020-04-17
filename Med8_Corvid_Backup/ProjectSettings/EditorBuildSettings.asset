@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/Scenes/QuestUI.unity
-    guid: a23f79355145f24468d78174855f36b3
-  - enabled: 1
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
     path: Assets/Scenes/HomeWorkSpace.unity
     guid: 5f2738157676d80459d939dcf4651172
+  - enabled: 1
+    path: Assets/Scenes/Costum Position.unity
+    guid: fc221dde6acb29e488e44fe817259cd0
   m_configObjects: {}
