@@ -32,6 +32,7 @@ public class CustomizePoint : MonoBehaviour
                 rightIndexTip = bone;
             }
         }
+
     }
 
     // Update is called once per frame
@@ -45,7 +46,8 @@ public class CustomizePoint : MonoBehaviour
         }
     }
 
-    void InitiateEvent(InteractableStateArgs state) //enables Ray function in case object is to far away or outside users guardian. 
+    //enables Ray function in case object is to far away or outside users guardian.
+    void InitiateEvent(InteractableStateArgs state)  
     {
         if (state.NewInteractableState == InteractableState.ContactState || state.NewInteractableState == InteractableState.ProximityState || state.NewInteractableState == InteractableState.ActionState)
         {
@@ -55,7 +57,8 @@ public class CustomizePoint : MonoBehaviour
             active = false;
     }
 
-    public void ActivePositionMove() // Move active position to right index tip.
+    // Move active position to right index tip.
+    public void ActivePositionMove() 
     {
             rightIndexTipPos = rightIndexTip.Transform.position;
 
