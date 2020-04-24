@@ -17,6 +17,7 @@ public class ProcedualMesh : MonoBehaviour
 
     Vector3[] vertices;
     int[] triangles;
+    
 
     private void Awake()
     {

@@ -24,7 +24,13 @@ public class HardCodeProcedualCube : MonoBehaviour
             new int[] {3, 2, 7, 6}
         };
 
-    Vector2[] uvs;
+    Vector2[] uv = new Vector2[]
+   {
+        new Vector2(0, 0),
+        new Vector2(0, 1),
+        new Vector2(1, 1),
+        new Vector2(1, 0)
+   };
 
     // Start is called before the first frame update
     void Awake()
@@ -84,7 +90,10 @@ public class HardCodeProcedualCube : MonoBehaviour
         mesh.Clear();
         mesh.vertices = vertices;
         mesh.triangles = triangles.ToArray();
-        //mesh.uv = uvs;
+        mesh.uv = uv;
+
         mesh.RecalculateNormals();
+        mesh.Optimize();
+        mesh.RecalculateBounds();
     }
 }
