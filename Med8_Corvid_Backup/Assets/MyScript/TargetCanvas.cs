@@ -6,8 +6,6 @@ using System.Linq;
 [RequireComponent(typeof(MeshRenderer))]
 public class TargetCanvas : MonoBehaviour
 {
-    public GameObject p1, p2, p3, p4;
-
     private int textureSize = 2048;
     private int pensize = 10;
     private Texture2D texture;
@@ -27,8 +25,6 @@ public class TargetCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rescaleCanvas();
-
         int x = (int)(posX * textureSize - (pensize / 2));
         int y = (int)(posY * textureSize - (pensize / 2));
 
@@ -68,16 +64,4 @@ public class TargetCanvas : MonoBehaviour
         this.color = Enumerable.Repeat<Color>(color, pensize * pensize).ToArray();
     }
 
-    void rescaleCanvas()
-    {
-        float zScale = Vector3.Distance(p1.transform.position, p2.transform.position);
-        float xScale = Vector3.Distance(p2.transform.position, p3.transform.position);
-
-        Vector3 newScale = new Vector3(xScale, 1, zScale);
-
-        this.transform.localScale = newScale;
-        //float zScale = this.transform.localScale.z;
-
-            
-    }
 }

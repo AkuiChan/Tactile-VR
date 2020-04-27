@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Costum Position.unity
     guid: fc221dde6acb29e488e44fe817259cd0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Drawing on object.unity
     guid: fbff2a2dc5e71c8468bf1fcbd891b0a7
   m_configObjects: {}
