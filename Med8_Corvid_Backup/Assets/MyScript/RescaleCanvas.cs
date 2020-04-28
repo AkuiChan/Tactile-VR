@@ -1,37 +1,45 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RescaleCanvas : MonoBehaviour
 {
-    public GameObject p1, p2, p3, p4;
+    public GameObject P1, P2, P3, P4;
 
-    Vector3 OGScale;
 
     private float xDistance, zDistance;
 
     // Start is called before the first frame update
     void Start()
     {
-        OGScale = this.transform.localScale;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector3 middleDistance = 0.5f * (p1.transform.position + p3.transform.position);
-        float largestY = Mathf.Max(p1.transform.position.y, p2.transform.position.y, p3.transform.position.y, p4.transform.position.y);
-        this.transform.position = new Vector3(middleDistance.x, (largestY + 0.0001f), middleDistance.z);
+        // Get the middle of the mesh and place the Canvas there. 
+        Vector3 Center = 0.5f * (P1.transform.position + P3.transform.position);
+        // Get the largest y and determine the height of the plane. 
+        float largestY = Mathf.Max(P1.transform.position.y, P2.transform.position.y, P3.transform.position.y, P4.transform.position.y);
+        // Actually place the Plane. 
+        this.transform.position = new Vector3(Center.x, (largestY + 0.0001f), Center.z);
 
-        float minZ = Mathf.Min(Vector3.Distance(p1.transform.position, p2.transform.position) + Vector3.Distance(p3.transform.position, p4.transform.position));
-        float minX = Mathf.Min(Vector3.Distance(p2.transform.position, p3.transform.position) + Vector3.Distance(p1.transform.position, p4.transform.position));
+        // Determine the scale of the Canvas.
+        float minZ = Mathf.Min(Vector3.Distance(P1.transform.position, P2.transform.position) + Vector3.Distance(P3.transform.position, P4.transform.position));
+        float minX = Mathf.Min(Vector3.Distance(P2.transform.position, P3.transform.position) + Vector3.Distance(P1.transform.position, P4.transform.position));
 
         zDistance = minZ/30f;
         xDistance = minX/30f;
 
+        // Transform the sacle of the canvas. 
         this.transform.localScale = new Vector3(xDistance, 1, zDistance);
 
-        Debug.Log("Angle between objects " + Vector3.Angle(p1.transform.position, p4.transform.position));
-        
+        // Find rotation position to be looked at
+        Vector3 p1p4Center = 0.5f * (P1.transform.position + P4.transform.position);
+
+        // Canvas look at rotation position
+        this.transform.LookAt(p1p4Center, new Vector3(0,1,0));
     }
 }
