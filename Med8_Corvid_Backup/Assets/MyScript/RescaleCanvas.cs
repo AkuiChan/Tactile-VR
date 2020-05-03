@@ -7,7 +7,6 @@ public class RescaleCanvas : MonoBehaviour
 {
     public GameObject P1, P2, P3, P4;
 
-
     private float xDistance, zDistance;
 
     // Start is called before the first frame update
@@ -39,7 +38,7 @@ public class RescaleCanvas : MonoBehaviour
         // Find rotation position to be looked at
         Vector3 p1p4Center = 0.5f * (P1.transform.position + P4.transform.position);
 
-        // Canvas look at rotation position
+        // Canvas look at rotation position. Vector to determine that its up.
         this.transform.LookAt(p1p4Center, new Vector3(0,1,0));
     }
 }
