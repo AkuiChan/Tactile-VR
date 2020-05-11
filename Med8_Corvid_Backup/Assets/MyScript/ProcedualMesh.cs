@@ -5,6 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class ProcedualMesh : MonoBehaviour
 {
+    public LockPosition LP;
+
     Mesh mesh;
     public GameObject p1, p2, p3, p4;
     Vector2[] uv = new Vector2[] 

@@ -10,7 +10,7 @@ public class LockPosition : MonoBehaviour
 
     public UnityEvent ContactEvent, ActionEvent_Lock, ActionEvent_Unlock, DefaultEvent;
 
-    bool islocked = false;
+    public bool islocked = false;
 
     void Start()
     {
