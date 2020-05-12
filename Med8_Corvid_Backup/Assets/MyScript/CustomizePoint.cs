@@ -17,13 +17,45 @@ public class CustomizePoint : MonoBehaviour
     bool PitchingGesture_L = false;
 
     Vector3 leftIndexTipPos, rightIndexTipPos;
-    bool active = false; // Activates positions independently from each other. Also allows for collider check (remember physics active on hands)
+    public bool active = false; // Activates positions independently from each other. Also allows for collider check (remember physics active on hands)
+
+    private bool StartBool = false;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<ButtonController>().InteractableStateChanged.AddListener(InitiateEvent);
-        
+        /*   
+           rightSkeleton = right.GetComponent<OVRSkeleton>();
+           foreach (OVRBone bone in rightSkeleton.Bones) // checks all bones.
+           {
+               if (bone.Id == OVRSkeleton.BoneId.Hand_IndexTip) // Sets the transpose position. 
+               {
+                   rightIndexTip = bone;
+               }
+           }
+           */
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        PitchingGesture_R = right.GetFingerIsPinching(OVRHand.HandFinger.Index);
+
+        if (PitchingGesture_R && active == true) // If pinching at an active position (whether ray or collider)
+        {
+
+            newStart();
+            ActivePositionMove();
+            Debug.Log("Pinching");
+        }
+    }
+
+    void newStart()
+    {
+        //GetComponent<ButtonController>().InteractableStateChanged.AddListener(InitiateEvent);
+
         rightSkeleton = right.GetComponent<OVRSkeleton>();
         foreach (OVRBone bone in rightSkeleton.Bones) // checks all bones.
         {
@@ -31,18 +63,6 @@ public class CustomizePoint : MonoBehaviour
             {
                 rightIndexTip = bone;
             }
-        }
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        PitchingGesture_R = right.GetFingerIsPinching(OVRHand.HandFinger.Index);
-
-        if (PitchingGesture_R && active == true) // If pinching at an active position (whether ray or collider)
-        {
-            ActivePositionMove();
         }
     }
 
