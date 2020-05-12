@@ -36,29 +36,4 @@ public class Pencil : MonoBehaviour
             this.CanvasReciever.toggleTouch(false);
         }
     }
-
-    /*
-       private void placeholder()
-        {
-            rightIndexTipPos = rightIndexTip.Transform.position;
-            Quaternion rightIndexTipRo = rightIndexTip.Transform.rotation;
-            this.transform.position = rightIndexTipPos;
-            this.transform.rotation = rightIndexTipRo;
-
-            float tipHeight = tip.transform.localScale.z;
-            Vector3 tipPos = tip.transform.position;
-            Ray ray = new Ray(tip.transform.position, tip.transform.forward);
-            RaycastHit hit;
-
-            Debug.DrawRay(tip.transform.position, Vector3.down * raycastLength);
-
-            if (Physics.Raycast(ray, out hit, raycastLength))
-            {
-                if (hit.collider.tag == "NewTag")
-                {
-                    ContactIsMade.Invoke();
-                }
-            }
-        }
-    */
 }

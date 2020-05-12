@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7900513874435769172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7900513874435769194}
+  - component: {fileID: 7900513874435769195}
+  m_Layer: 0
+  m_Name: Gesture
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7900513874435769194
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900513874435769172}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7900513874435769195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7900513874435769172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ea1234a5421d748a68c0466cb0084d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeleton: {fileID: 0}
+  gestures:
+  - name: Fist
+    FingerDatas:
+    - {x: 0, y: 0, z: 0}
+    - {x: 0, y: 0, z: 0}
+    - {x: -0.020069288, y: -0.011554112, z: -0.010496509}
+    - {x: -0.036992528, y: -0.021459915, z: -0.025765078}
+    - {x: -0.061337836, y: -0.038447257, z: -0.039025016}
+    - {x: -0.089258544, y: -0.053471502, z: -0.027333982}
+    - {x: -0.09599627, y: -0.00731644, z: -0.023550678}
+    - {x: -0.120174244, y: -0.03652599, z: -0.024391215}
+    - {x: -0.09766988, y: -0.045415357, z: -0.022111557}
+    - {x: -0.09564662, y: -0.002543159, z: -0.0017259}
+    - {x: -0.11857696, y: -0.038824435, z: -0.00095567986}
+    - {x: -0.09217269, y: -0.046381574, z: -0.0031204445}
+    - {x: -0.08869379, y: -0.006529337, z: 0.017465249}
+    - {x: -0.10389251, y: -0.04243922, z: 0.017046943}
+    - {x: -0.07919461, y: -0.048462138, z: 0.009308546}
+    - {x: -0.034073547, y: -0.00941984, z: 0.02299859}
+    - {x: -0.07789587, y: -0.013691191, z: 0.03505407}
+    - {x: -0.08771351, y: -0.042213988, z: 0.029239725}
+    - {x: -0.069227256, y: -0.044276386, z: 0.021081487}
+    - {x: -0.10539272, y: -0.06337375, z: -0.011590941}
+    - {x: -0.07986174, y: -0.03190057, z: -0.020894866}
+    - {x: -0.07255268, y: -0.03134998, z: -0.0068274997}
+    - {x: -0.06306404, y: -0.030761927, z: 0.004734604}
+    - {x: -0.054286856, y: -0.029199166, z: 0.015460799}
+    onRecognized:
+      m_PersistentCalls:
+        m_Calls: []
+  debugMode: 0
+  threshold: 0.1
+  Pencil: {fileID: 0}
+  tempLook: {fileID: 0}
