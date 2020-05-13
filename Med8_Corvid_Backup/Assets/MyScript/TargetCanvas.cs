@@ -14,12 +14,11 @@ public class TargetCanvas : MonoBehaviour
     private bool touching, touchingLast;
     private float posX, posY;
     private float lastX, lastY;
+
     // Start is called before the first frame update
     void Start()
     {
-        Renderer rendere = GetComponent<Renderer>();
-        this.texture = new Texture2D(textureSize, textureSize);
-        rendere.material.mainTexture = this.texture; 
+        ResetCanvas(); 
     }
 
     // Update is called once per frame
@@ -64,4 +63,10 @@ public class TargetCanvas : MonoBehaviour
         this.color = Enumerable.Repeat<Color>(color, pensize * pensize).ToArray();
     }
 
+    public void ResetCanvas()
+    {
+        Renderer rendere = GetComponent<Renderer>();
+        this.texture = new Texture2D(textureSize, textureSize);
+        rendere.material.mainTexture = this.texture;
+    }
 }
