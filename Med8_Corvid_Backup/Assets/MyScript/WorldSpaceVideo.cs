@@ -5,14 +5,19 @@ using UnityEngine.Video;
 
 public class WorldSpaceVideo : MonoBehaviour
 {
-    // Global
+    [Header("Global Attributes")]
+    public GameObject NextButton;
+    public GameObject PreviusButton;
+    public GameObject StartExperiment;
+    public GameObject TutorialUI, ExperimentUI;
     private int Index;
 
-    // Text
-    public GameObject Setup, Instruction;
+    [Header("Text Attributes")]
+    public GameObject Setup;
+    public GameObject Instruction;
     private int TextIndex;
 
-    // Video
+    [Header ("Video Attributes")]
     public VideoClip[] videoClips;
     private VideoPlayer videoPlayer;
     private int VideoIndex;
@@ -43,6 +48,7 @@ public class WorldSpaceVideo : MonoBehaviour
             Index = 4;
             Setup.SetActive(false);
             Instruction.SetActive(true);
+            NextButton.SetActive(false); PreviusButton.SetActive(false); StartExperiment.SetActive(true);
         }
         else if (Index == 0)
         {
@@ -72,11 +78,6 @@ public class WorldSpaceVideo : MonoBehaviour
             videoPlayer.Play();
             Setup.SetActive(false);
             Instruction.SetActive(false);
-        }
-        else if (Index == 4)
-        {
-            Setup.SetActive(false);
-            Instruction.SetActive(true);
         }
     }
     public void Previus()
@@ -111,5 +112,11 @@ public class WorldSpaceVideo : MonoBehaviour
             Setup.SetActive(false);
             Instruction.SetActive(false);
         }
+    }
+
+    public void ReadyToStart()
+    {
+        TutorialUI.SetActive(false);
+        ExperimentUI.SetActive(true);
     }
 }

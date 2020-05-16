@@ -65,6 +65,7 @@ public class TargetCanvas : MonoBehaviour
 
     public void ResetCanvas()
     {
+        Debug.Log("Canvas Is Reset");
         Renderer rendere = GetComponent<Renderer>();
         this.texture = new Texture2D(textureSize, textureSize);
         rendere.material.mainTexture = this.texture;

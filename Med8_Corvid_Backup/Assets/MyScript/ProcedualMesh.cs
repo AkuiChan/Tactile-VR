@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter))]
 public class ProcedualMesh : MonoBehaviour
 {
-    public LockPosition LP;
+    //public LockPosition LP;
 
     Mesh mesh;
     public GameObject p1, p2, p3, p4;

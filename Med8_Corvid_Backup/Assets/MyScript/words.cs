@@ -1,39 +1,79 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class words : MonoBehaviour
 {
-    List<string> wordPool = new List<string>();
-    public Text txt;
+    List<string> wordPool_1 = new List<string>();
+    List<string> wordPool_2 = new List<string>();
+    public Text txt, counter;
     //List<string> writePool = new List<string>();
-    bool listEmpty = false;
-
+    public bool listEmpty, NextBool_1, NextBool_2 = false;
+    int CounterInt, nextInt;
     private float secondsCount;
 
+    public GameObject button;
+    public TargetCanvas _targetCanvas;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         var rand = new System.Random();
         int randNr = rand.Next(1,2);
-        MakeLists(wordPool, randNr);
-        txt = GameObject.Find("Word").GetComponent<Text>();
-    }
+        MakeLists(wordPool_1, randNr);
 
+        if (randNr == 1)
+        {
+            MakeLists(wordPool_2, 2);
+        }
+        else
+        {
+            MakeLists(wordPool_2, 1);
+        }
+
+        txt = GameObject.Find("Word").GetComponent<Text>();
+        CounterInt = 30;
+        counter.text = CounterInt.ToString();
+    }
+    
     // Update is called once per frame
     void Update()
     {
+        if (NextBool_1 == true)
+        {
             try
             {
-                Timer();
+                Timer(wordPool_1);
             }
             catch (System.ArgumentOutOfRangeException ex)
             {
-                Debug.Log("List is empty!");
+                txt.text = "You are done with the first condition,\n" +
+                    "please take the headset off and answer the questionnaire\n" +
+                    "\n" +
+                    "Click 'Start Condition' When you have Answered the questionnaire";
                 listEmpty = true;
+                NextBool_1 = false;
+                button.SetActive(true);
             }
+        }
+
+        if (NextBool_2 == true)
+        {
+            try
+            {
+                Timer(wordPool_2);
+            }
+            catch (System.ArgumentOutOfRangeException ex)
+            {
+                txt.text = "Thank you for participanting \n" +
+                    "Please answer the questionnaire one last time.";
+                listEmpty = true;
+                NextBool_2 = false;
+            }
+        }
     }
     
 
@@ -124,21 +164,51 @@ public class words : MonoBehaviour
         }
     }
 
-    public void Timer()
+    public void Timer(List<string> ThisWordPool)
     {
-    secondsCount += Time.deltaTime;
-    bool newWord = false;
-        if (secondsCount >= 20)
+        secondsCount += Time.deltaTime;
+        bool newWord = false;
+        if (secondsCount >= 5)
         {
             //Debug.Log("20 seconds passed");
             newWord = true;
             secondsCount = 0;
+
+            CounterInt--;
+            if (CounterInt <= 0)
+            {
+                CounterInt = 0;
+            }
+            counter.text = CounterInt.ToString();
         }
         if (newWord == true)
         {
-            PickWord(wordPool);
+            audioSource.Play(0);
+            _targetCanvas.ResetCanvas();
+            PickWord(ThisWordPool);
             newWord = false;
         }
     }
 
+    public void NextCondition()
+    {
+        txt.text = "Get Ready";
+        Debug.Log("index " + nextInt);
+        nextInt += 1;
+
+        if (nextInt == 1)
+        {
+            CounterInt = 30;
+            counter.text = CounterInt.ToString();
+            NextBool_1 = true;
+        }
+        if (nextInt >= 2 && NextBool_1 == false && NextBool_2 == false)
+        {
+            CounterInt = 30;
+            counter.text = CounterInt.ToString();
+            NextBool_2 = true;
+        }
+
+        button.SetActive(false);
+    }
 }
