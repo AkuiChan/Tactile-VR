@@ -10,11 +10,12 @@ public class words : MonoBehaviour
     List<string> wordPool_2 = new List<string>();
     public Text txt, counter;
     //List<string> writePool = new List<string>();
-    public bool listEmpty, NextBool_1, NextBool_2 = false;
+    bool listEmpty, NextBool_1;
+    public bool NextBool_2 = false;
     int CounterInt, nextInt;
     private float secondsCount;
 
-    public GameObject button;
+    public GameObject button, procedualMesh1, procedualMesh2;
     public TargetCanvas _targetCanvas;
     public AudioSource audioSource;
 
@@ -50,7 +51,7 @@ public class words : MonoBehaviour
             }
             catch (System.ArgumentOutOfRangeException ex)
             {
-                txt.text = "You are done with the first condition,\n" +
+                txt.text = "You are done with the first condition, with a table pressent in real life,\n" +
                     "please take the headset off and answer the questionnaire\n" +
                     "\n" +
                     "Click 'Start Condition' When you have Answered the questionnaire";
@@ -69,6 +70,7 @@ public class words : MonoBehaviour
             catch (System.ArgumentOutOfRangeException ex)
             {
                 txt.text = "Thank you for participanting \n" +
+                    "You just finnished the seccond condition, with a virtual table" +
                     "Please answer the questionnaire one last time.";
                 listEmpty = true;
                 NextBool_2 = false;
@@ -168,7 +170,7 @@ public class words : MonoBehaviour
     {
         secondsCount += Time.deltaTime;
         bool newWord = false;
-        if (secondsCount >= 5)
+        if (secondsCount >= 25)
         {
             //Debug.Log("20 seconds passed");
             newWord = true;
@@ -192,18 +194,22 @@ public class words : MonoBehaviour
 
     public void NextCondition()
     {
-        txt.text = "Get Ready";
-        Debug.Log("index " + nextInt);
+        //Debug.Log("index " + nextInt);
         nextInt += 1;
 
         if (nextInt == 1)
         {
+            txt.text = "Get Ready\n" +
+                "You have 25 secconds for each word";
             CounterInt = 30;
             counter.text = CounterInt.ToString();
             NextBool_1 = true;
         }
         if (nextInt >= 2 && NextBool_1 == false && NextBool_2 == false)
         {
+            procedualMesh1.SetActive(false); procedualMesh2.SetActive(true);
+            txt.text = "Get Ready\n" +
+                "You have 25 secconds for each word";
             CounterInt = 30;
             counter.text = CounterInt.ToString();
             NextBool_2 = true;

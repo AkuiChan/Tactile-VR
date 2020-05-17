@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using OculusSampleFramework;
 using UnityEngine.Events;
-using UnityEditorInternal;
 
 public class VideoNext : MonoBehaviour
 {

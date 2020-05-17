@@ -21,6 +21,7 @@ public class WorldSpaceVideo : MonoBehaviour
     public VideoClip[] videoClips;
     private VideoPlayer videoPlayer;
     private int VideoIndex;
+    public GameObject Video1Text, Video2Text, Video3Text;
 
     private void Awake()
     {
@@ -46,8 +47,11 @@ public class WorldSpaceVideo : MonoBehaviour
         if (Index >= 4)
         {
             Index = 4;
-            Setup.SetActive(false);
-            Instruction.SetActive(true);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(false); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(true);
+            // Button Inputs
             NextButton.SetActive(false); PreviusButton.SetActive(false); StartExperiment.SetActive(true);
         }
         else if (Index == 0)
@@ -55,29 +59,37 @@ public class WorldSpaceVideo : MonoBehaviour
             VideoIndex = 0;
             videoPlayer.clip = videoClips[VideoIndex];
             videoPlayer.Play();
-            Setup.SetActive(false);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(true); Video2Text.SetActive(false); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(false);
         }
         else if (Index == 1)
         {
             VideoIndex = 1;
             videoPlayer.clip = videoClips[VideoIndex];
             videoPlayer.Play();
-            Setup.SetActive(false);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(true); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(false);
         }
         else if (Index == 2)
         {
-            Setup.SetActive(true);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(false); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(true); Instruction.SetActive(false);
         }
         else if (Index == 3)
         {
             VideoIndex = 2;
             videoPlayer.clip = videoClips[VideoIndex];
             videoPlayer.Play();
-            Setup.SetActive(false);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(false); Video3Text.SetActive(true);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(false);
         }
     }
     public void Previus()
@@ -88,29 +100,37 @@ public class WorldSpaceVideo : MonoBehaviour
             Index = VideoIndex = 0;
             videoPlayer.clip = videoClips[VideoIndex];
             videoPlayer.Play();
-            Setup.SetActive(false);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(true); Video2Text.SetActive(false); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(false);
         }
         else if (Index == 1)
         {
             VideoIndex = 1;
             videoPlayer.clip = videoClips[VideoIndex];
             videoPlayer.Play();
-            Setup.SetActive(false);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(true); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(false);
         }
         else if (Index == 2)
         {
-            Setup.SetActive(true);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(false); Video3Text.SetActive(false);
+            // Instruction Text
+            Setup.SetActive(true); Instruction.SetActive(false);
         }
         else if (Index == 3)
         {
             VideoIndex = 2;
             videoPlayer.clip = videoClips[VideoIndex];
             videoPlayer.Play();
-            Setup.SetActive(false);
-            Instruction.SetActive(false);
+            // Video Text
+            Video1Text.SetActive(false); Video2Text.SetActive(false); Video3Text.SetActive(true);
+            // Instruction Text
+            Setup.SetActive(false); Instruction.SetActive(false);
         }
     }
 

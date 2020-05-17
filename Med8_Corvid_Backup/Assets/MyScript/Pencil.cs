@@ -9,12 +9,12 @@ public class Pencil : MonoBehaviour
     // Drawing object.
     public TargetCanvas CanvasReciever;
     public Transform tipTransform;
-    float raycastLength = 0.05f;
+    float raycastLength = 0.025f;
     private RaycastHit touch;
     private bool lastTouch;
     private Quaternion lastAngle;
 
-    public UnityEvent ContactIsMade, contactLost;
+    //public UnityEvent ContactIsMade, contactLost;
 
     // Start is called before the first frame update
     void Start()
