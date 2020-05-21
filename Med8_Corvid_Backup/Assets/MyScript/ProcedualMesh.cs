@@ -6,6 +6,7 @@ using UnityEngine;
 public class ProcedualMesh : MonoBehaviour
 {
     //public LockPosition LP;
+    public RescaleCanvas _rescaleCanvas;
 
     Mesh mesh;
     public GameObject p1, p2, p3, p4;
@@ -31,6 +32,7 @@ public class ProcedualMesh : MonoBehaviour
     {
             MakeMeshData();
             updateMesh();
+        _rescaleCanvas.ReposiitonCanvas();
     }
 
     void MakeMeshData()

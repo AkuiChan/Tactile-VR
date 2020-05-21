@@ -15,7 +15,7 @@ public class words : MonoBehaviour
     int CounterInt, nextInt;
     private float secondsCount;
 
-    public GameObject button, procedualMesh1, procedualMesh2;
+    public GameObject realButton, virtualButton, procedualMesh1, procedualMesh2;
     public TargetCanvas _targetCanvas;
     public AudioSource audioSource;
 
@@ -51,13 +51,13 @@ public class words : MonoBehaviour
             }
             catch (System.ArgumentOutOfRangeException ex)
             {
-                txt.text = "You are done with the first condition, with a table pressent in real life,\n" +
-                    "please take the headset off and answer the questionnaire\n" +
-                    "\n" +
-                    "Click 'Start Condition' When you have Answered the questionnaire";
+                txt.text = "Thank you for participanting \n" +
+                    "You just finnished the Real table condition\n" +
+                    "Please answer the questionnaire one last time.";
+                
                 listEmpty = true;
                 NextBool_1 = false;
-                button.SetActive(true);
+                virtualButton.SetActive(true);
             }
         }
 
@@ -69,11 +69,14 @@ public class words : MonoBehaviour
             }
             catch (System.ArgumentOutOfRangeException ex)
             {
-                txt.text = "Thank you for participanting \n" +
-                    "You just finnished the seccond condition, with a virtual table" +
-                    "Please answer the questionnaire one last time.";
+                txt.text = "You are done with the virtual Table condition\n" +
+                   "Please take the headset off and answer the questionnaire\n" +
+                   "\n" +
+                   "Click 'Real Table Condition' When you have Answered the questionnaire";
+
                 listEmpty = true;
                 NextBool_2 = false;
+                realButton.SetActive(true);
             }
         }
     }
@@ -170,7 +173,7 @@ public class words : MonoBehaviour
     {
         secondsCount += Time.deltaTime;
         bool newWord = false;
-        if (secondsCount >= 25)
+        if (secondsCount >= 1)
         {
             //Debug.Log("20 seconds passed");
             newWord = true;
@@ -192,29 +195,27 @@ public class words : MonoBehaviour
         }
     }
 
-    public void NextCondition()
+    public void RealTableCondition()
     {
-        //Debug.Log("index " + nextInt);
-        nextInt += 1;
-
-        if (nextInt == 1)
-        {
-            txt.text = "Get Ready\n" +
+        procedualMesh1.SetActive(true); procedualMesh2.SetActive(false);
+        txt.text = "Get Ready\n" +
                 "You have 25 secconds for each word";
             CounterInt = 30;
             counter.text = CounterInt.ToString();
             NextBool_1 = true;
-        }
-        if (nextInt >= 2 && NextBool_1 == false && NextBool_2 == false)
-        {
-            procedualMesh1.SetActive(false); procedualMesh2.SetActive(true);
-            txt.text = "Get Ready\n" +
-                "You have 25 secconds for each word";
-            CounterInt = 30;
-            counter.text = CounterInt.ToString();
-            NextBool_2 = true;
-        }
 
-        button.SetActive(false);
+        realButton.SetActive(false); virtualButton.SetActive(false);
+    }
+
+    public void VirtualTableCondition()
+    {
+        procedualMesh1.SetActive(false); procedualMesh2.SetActive(true);
+        txt.text = "Get Ready\n" +
+            "You have 25 secconds for each word";
+        CounterInt = 30;
+        counter.text = CounterInt.ToString();
+        NextBool_2 = true;
+
+        realButton.SetActive(false); virtualButton.SetActive(false);
     }
 }
