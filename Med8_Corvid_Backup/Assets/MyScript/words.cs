@@ -173,7 +173,7 @@ public class words : MonoBehaviour
     {
         secondsCount += Time.deltaTime;
         bool newWord = false;
-        if (secondsCount >= 1)
+        if (secondsCount >= 25)
         {
             //Debug.Log("20 seconds passed");
             newWord = true;
